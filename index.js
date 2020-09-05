@@ -10,3 +10,9 @@
 // 6.They are case sensitive
 let name = 'Souma';
 console.log(name);
+
+
+// Constant
+const interestRate = .3;
+// you can't change interestRate = 1 because it is a constant
+console.log(interestRate);
