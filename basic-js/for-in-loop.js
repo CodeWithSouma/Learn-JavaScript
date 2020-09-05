@@ -1,4 +1,7 @@
 // for...in loop
+// N:B we use for-of loop use to iterate eleemet of an array 
+// and for-in loop use to iterate key of an object 
+
 const person = {
     name:'Souma',
     age:22
