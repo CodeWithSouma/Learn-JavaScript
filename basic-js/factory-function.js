@@ -1,5 +1,6 @@
 //Object-Oriented-Programming(OOP)
 // Factory Function
+// you should use camel notation: oneTwoThreeFour
 function createCircle(radious) {
     return {
         radious,//if key and value is same means radious:radious
