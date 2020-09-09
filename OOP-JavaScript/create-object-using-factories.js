@@ -4,6 +4,7 @@
 // Create object using factories methods
 
 // factory function
+// always use camel case notation to declair factory function
 function createCircle(radious,x,y) {
     return {
         radious,
