@@ -43,4 +43,9 @@ Circle.prototype.toString = function () {
     return 'Circle with radious '+this.radious;
 }
 
-console.log(c1.toString());;
+console.log(c1.toString());
+
+// N:B Object.keys return only instance member 
+// But for in loop return all key instance+prototype member
+console.log(c1.hasOwnProperty('radious'));//true because it is instance property
+console.log(c1.hasOwnProperty('draw'));//it is false because it is prototype property
