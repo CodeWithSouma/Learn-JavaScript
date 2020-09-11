@@ -16,7 +16,8 @@ HtmlElement.prototype.focus = function(){
     console.log('Focused');
 }
 
-// ************************CHILD OBJECT********************* //
+
+// ************************CHILD OBJECT 1********************* //
 
 function HtmlSelectElement(...elements) {
     this.items = [...elements];
@@ -27,7 +28,34 @@ function HtmlSelectElement(...elements) {
         const index = this.items.indexOf(item);
         this.items.splice(index,1);
     }
+    this.render = function () {
+        // let option='';
+        // for (const item of this.items) {
+        //     option +=`<option> ${item} </option>\n`;
+        // }
+        // return '<select>\n'+option+'</select>'; 
+        
+        return(`
+        <select>${this.items.map(item => `
+        <option>${item}</option>`).join('')}
+        </select>
+        `)
+    }
 }
+
+
+
+
+// *********************Child Object 2************************//
+
+function HtmlImageElement(source) {
+    this.src = source;
+    this.render = function () {
+        return `<img src="${this.src}"/>`
+    };
+}
+
+
 
 // *********************************************************//
 
@@ -37,7 +65,22 @@ function HtmlSelectElement(...elements) {
 HtmlSelectElement.prototype = new HtmlElement();// reset prototype
 HtmlSelectElement.prototype.constructor = HtmlSelectElement;//reset constructor
 
+HtmlImageElement.prototype = new HtmlElement();
+HtmlImageElement.prototype.constructor = HtmlImageElement;
+
 const element = new HtmlElement();
 const selectElement = new HtmlSelectElement(1,2,3,4);
+const img = new HtmlImageElement();
+
+img.src = 'https://babu.png';
+
 console.log(element);
 console.log(selectElement);
+console.log(img);
+
+
+const objects = [new HtmlSelectElement(1,2,3,4),new HtmlImageElement()];
+
+for (const object of objects) {
+    console.log(object.render());
+}
